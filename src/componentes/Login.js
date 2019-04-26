@@ -1,24 +1,3 @@
-// import React, {Component} from 'react';
-// import { Text, Button, View} from 'react-native';
-// import Styles from '../estilos/MainStyle'
-
-// export default class Login extends Component {
-//   render() {
-//     return (
-//       <View>
-//         <Text style={Styles.label} >
-//             Login Page!
-//         </Text> 
-//         <Button
-//           style={Styles.botao}
-//           title="Ir para Home"
-//           onPress={() => this.props.navigation.navigate('App')}
-//         />      
-//       </View>
-//     );
-//   }
-// }
-
 import React, {Component} from 'react';
 import {
     View, 
@@ -37,6 +16,12 @@ const width_screen = Dimensions.get('screen').width;
 
 
 export default class Login extends Component {
+    
+    static navigationOptions = {
+      headerStyle: {
+        marginTop: -100
+      },
+    };
 
     constructor(){
         super();
@@ -66,7 +51,7 @@ export default class Login extends Component {
                 if(response.ok)
                     return response.text();
 
-                throw new Error("Seu burro! Não foi possível efetuar login.")
+                throw new Error("Não foi possível efetuar login.")
             })
             .then(token => {
                 AsyncStorage.setItem('token', token);
@@ -100,7 +85,6 @@ export default class Login extends Component {
                         secureTextEntry={true}/>
                     <View style={styles.containerBotton}>
                         <Button title="Acessar" color="#435e7a"
-                        // onPress={() => this.props.navigation.navigate('InstaMobile')} 
                         onPress={this.startLogin.bind(this)} 
                         />
                     </View>

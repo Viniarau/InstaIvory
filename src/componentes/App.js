@@ -1,31 +1,6 @@
-
-// import React, {Component} from 'react';
-// import { Text, View} from 'react-native';
-// import Styles from '../estilos/MainStyle'
-
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <View>
-//         <Text style={Styles.label} >
-//             Home Page!
-//         </Text>       
-//       </View>
-//     );
-//   }
-// }
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import { 
   StyleSheet, 
-  Dimensions, 
   FlatList,
   Platform
 } from 'react-native';
@@ -34,6 +9,15 @@ import Post from './Post';
 
 export default class InstaMobile extends Component {
   
+  static navigationOptions = {
+    title: 'InstaIvory',
+    headerStyle: {
+      title: {
+        color: '#4682B4'
+      },
+    },
+  };
+
   constructor(){
     super();
     this.state = {
@@ -86,7 +70,7 @@ export default class InstaMobile extends Component {
       ...photo.comentarios,
       {
         id: valueComment,
-        login: 'Bonoro',
+        login: 'Usuário',
         texto: valueComment
       }
     ];
