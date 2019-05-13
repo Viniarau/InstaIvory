@@ -4,14 +4,17 @@ import {
     Text, 
     View, 
     Image, 
-    Dimensions
+    Dimensions,
+    TouchableOpacity
 } from 'react-native';
 import InputComment from './InputComment';
 import Likes from './Likes';
 
+import { withNavigation } from 'react-navigation';
+
 const width_screen = Dimensions.get('screen').width;
 
-export default class Post extends Component {
+class Post extends Component {
 
   viewLegend(photo){
     if(photo.comentario === '')
@@ -24,17 +27,23 @@ export default class Post extends Component {
     );
   }
 
+  startProfile(){
+    //**********teste**************
+    this.props.navigation.navigate('Logout')
+  }
 
   render() {
       const {photo, likeCallback, commentCallback } = this.props;
 
     return (
     <View>
-        <View style={styles.headerImage}>
-        <Image source={{uri: photo.urlPerfil}}
-                style={styles.imageProfile}/>
-            <Text>{photo.loginUsuario}</Text>
-        </View>
+        <TouchableOpacity onPress={this.startProfile.bind(this)}>
+          <View style={styles.headerImage} >
+          <Image source={{uri: photo.urlPerfil}}
+                  style={styles.imageProfile}/>
+              <Text>{photo.loginUsuario}</Text>
+          </View>
+        </TouchableOpacity>
         <Image source={{uri: photo.urlFoto}}
                 style={styles.imagePost}/>
 
@@ -58,6 +67,8 @@ export default class Post extends Component {
     );
   }
 }
+
+export default withNavigation(Post)
 
 const styles = StyleSheet.create({
   headerImage: {

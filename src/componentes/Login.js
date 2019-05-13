@@ -18,9 +18,7 @@ const width_screen = Dimensions.get('screen').width;
 export default class Login extends Component {
     
     static navigationOptions = {
-      headerStyle: {
-        marginTop: -100
-      },
+      header: null,
     };
 
     constructor(){
@@ -34,7 +32,6 @@ export default class Login extends Component {
 
     startLogin() {
         const uri = "https://instalura-api.herokuapp.com/api/public/login";
-
         requestInfo = {
             method: 'POST',
             body: JSON.stringify( {
