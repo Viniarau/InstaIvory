@@ -1,48 +1,26 @@
 import { withNavigation } from 'react-navigation';
 
 import React, {Component} from 'react';
-  import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
+import {Text, TouchableOpacity, View, FlatList, Button} from 'react-native';
 
 class Profile extends Component {
-    state = {
-      modalVisible: false,
-    };
-  
-    setModalVisible(visible) {
-      this.setState({modalVisible: visible});
-    }
+
+  logout(){
+    this.props.navigation.navigate('Login')
+  }
   
     render() {
       return (
-        <View style={{marginTop: 22}}>
-          <Modal
-            animationType="slide"
-            transparent={false}
-            visible={this.state.modalVisible}
-            onRequestClose={() => {
-              Alert.alert('Modal has been closed.');
-            }}>
-            <View style={{marginTop: 22}}>
-              <View>
-                <Text>Hello World!</Text>
-  
-                <TouchableHighlight
-                  onPress={() => {
-                    this.setModalVisible(!this.state.modalVisible);
-                  }}>
-                  <Text>Hide Modal</Text>
-                </TouchableHighlight>
-              </View>
-            </View>
-          </Modal>
-  
-          <TouchableHighlight
-            onPress={() => {
-              this.setModalVisible(true);
-            }}>
-            <Text>Show Modal</Text>
-          </TouchableHighlight>
+        <View style={{flex:1}}>
+          <View style={{position:'absolute',bottom:0,alignSelf:'center'}}>
+            <Button
+              onPress={this.logout.bind(this)}
+              title="Logout"
+              color="#FF6347"
+            />
+          </View>
         </View>
+          
       );
     }
   }

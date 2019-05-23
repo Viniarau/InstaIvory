@@ -41,6 +41,18 @@ Baixar o JDK [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8
 
 Instalação e configuração do navegação do React Native
 [https://reactnavigation.org/docs/en/getting-started.html](https://reactnavigation.org/docs/en/getting-started.html)
+
+- MaterialBottomTabNavigator
+
+`npm install react-navigation-material-bottom-tabs react-native-paper --save`
+`npm install react-native-vector-icons --save`
+
+- React-native camera
+
+`npm install react-native-camera --save`
+Configurações completas no link abaixo (Android):
+(https://blog.rocketseat.com.br/react-native-camera/)
+
 ## Criando e rodando o App
 
 Inicializar o App

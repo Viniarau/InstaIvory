@@ -60,6 +60,7 @@ export default class Login extends Component {
     }
 
     render(){
+        const {callbackSair} = this.props;
         return(
             <View style={styles.container}>
                 <View style={styles.background}>
